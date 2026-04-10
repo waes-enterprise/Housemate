@@ -1,0 +1,952 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM CUSTOM UTILITIES — Housemate ZM
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Smooth Scrollbar ──────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 102, 51, 0.2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 51, 0.2);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 102, 51, 0.4);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Premium Shimmer Animation ────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 37%,
+    #f0f0f0 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* ─── Fade-in / Slide-up Animation ─────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Staggered Fade-in (for grid items) ───────────────── */
+.animate-stagger-1 { animation-delay: 0.05s; }
+.animate-stagger-2 { animation-delay: 0.10s; }
+.animate-stagger-3 { animation-delay: 0.15s; }
+.animate-stagger-4 { animation-delay: 0.20s; }
+.animate-stagger-5 { animation-delay: 0.25s; }
+.animate-stagger-6 { animation-delay: 0.30s; }
+.animate-stagger-7 { animation-delay: 0.35s; }
+.animate-stagger-8 { animation-delay: 0.40s; }
+
+/* ─── Premium Card Hover ───────────────────────────────── */
+.card-premium {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-premium:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 102, 51, 0.08);
+}
+
+/* ─── Smooth Interactive Transitions ───────────────────── */
+button,
+a,
+input,
+select,
+[role="button"] {
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Custom Selection Color ───────────────────────────── */
+::selection {
+  background: rgba(0, 102, 51, 0.15);
+  color: #004d26;
+}
+
+::-moz-selection {
+  background: rgba(0, 102, 51, 0.15);
+  color: #004d26;
+}
+
+/* ─── Logo Pulse Animation ─────────────────────────────── */
+@keyframes logoPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+.animate-logo-pulse {
+  animation: logoPulse 2.5s ease-in-out infinite;
+}
+
+/* ─── Plus Button Glow Pulse ───────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 102, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(0, 102, 51, 0.5),
+                0 0 40px rgba(0, 102, 51, 0.15);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* ─── Floating Animation ───────────────────────────────── */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Section Fade-in Stagger ──────────────────────────── */
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section-fade {
+  animation: sectionFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Slide-in for Sheet Items ─────────────────────────── */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Gradient Border Bottom ───────────────────────────── */
+.gradient-border-bottom {
+  position: relative;
+}
+
+.gradient-border-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+}
+
+/* ─── Gradient Border Top ──────────────────────────────── */
+.gradient-border-top {
+  position: relative;
+}
+
+.gradient-border-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 102, 51, 0.15),
+    rgba(0, 102, 51, 0.3),
+    rgba(0, 102, 51, 0.15),
+    transparent
+  );
+}
+
+/* ─── Badge Glow ───────────────────────────────────────── */
+.badge-glow {
+  box-shadow: 0 0 8px rgba(0, 102, 51, 0.3);
+}
+
+/* ─── Verified Badge Glow ──────────────────────────────── */
+.verified-glow {
+  box-shadow: 0 0 10px rgba(0, 102, 51, 0.4),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Image Vignette / Inner Shadow ───────────────────── */
+.image-vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 40px 8px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* ─── Star Glow (amber) ──────────────────────────────── */
+.star-glow {
+  filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5));
+}
+
+/* ─── Heart Ring Animation ───────────────────────────── */
+@keyframes heartRing {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.heart-ring-animate {
+  animation: heartRing 0.5s ease-out;
+}
+
+/* ─── Glass Morphism ───────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-white {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Premium Button Gradient ──────────────────────────── */
+.btn-gradient {
+  background: linear-gradient(135deg, #006633, #004d26);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #007a3d, #005f2e);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 102, 51, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM ENHANCEMENTS — Housemate ZM
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Global: Smooth Scroll ─────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Global: Font Smoothing ────────────────────────────── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── 1. Premium Gradient Text (Green) ──────────────────── */
+.text-gradient-green {
+  background: linear-gradient(135deg, #006633 0%, #00a86b 50%, #006633 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* ─── 2. Elevated Card Shadow ───────────────────────────── */
+.card-elevated {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 16px 32px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-elevated:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 16px 32px rgba(0, 0, 0, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── 3. Subtle Float Animation ─────────────────────────── */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+/* ─── 4. Pulse Ring Animation (Notification Badges) ─────── */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  80%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  position: relative;
+}
+
+.animate-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulseRing 1.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  z-index: -1;
+}
+
+/* ─── 5. Hover Lift Transition (defined below) ─────── */
+
+/* ─── 6. Premium Focus Ring (Green Glow) ────────────────── */
+.focus-premium {
+  transition: box-shadow 0.2s ease, outline-color 0.2s ease;
+}
+
+.focus-premium:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(0, 102, 51, 0.15),
+              0 0 0 1px rgba(0, 102, 51, 0.3),
+              0 0 12px rgba(0, 102, 51, 0.08);
+}
+
+/* ─── 7. Skeleton Dark Theme ────────────────────────────── */
+@keyframes shimmerDark {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 37%,
+    rgba(255, 255, 255, 0.04) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmerDark 2s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* ─── 8. Glass Dark Variant ─────────────────────────────── */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ─── 9. Gradient Mesh Background (Green) ───────────────── */
+.bg-mesh-green {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 102, 51, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 168, 107, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(0, 77, 38, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(0, 102, 51, 0.04) 0%, transparent 40%);
+  background-color: #fafafa;
+}
+
+.dark .bg-mesh-green {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 102, 51, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 168, 107, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(0, 77, 38, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(0, 102, 51, 0.06) 0%, transparent 40%);
+  background-color: var(--background);
+}
+
+/* ─── 10. Premium Divider (Gradient Fade) ───────────────── */
+.divider-premium {
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 102, 51, 0.08) 15%,
+    rgba(0, 102, 51, 0.2) 50%,
+    rgba(0, 102, 51, 0.08) 85%,
+    transparent 100%
+  );
+  margin: 1.5rem 0;
+}
+
+.dark .divider-premium {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 168, 107, 0.08) 15%,
+    rgba(0, 168, 107, 0.2) 50%,
+    rgba(0, 168, 107, 0.08) 85%,
+    transparent 100%
+  );
+}
+
+/* ─── 11. Number Counter Animation ──────────────────────── */
+@keyframes countUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-count-up {
+  animation: countUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── 12. Breathe Animation (defined below) ─────────── */
+
+/* ─── 13. Active Press Effect ───────────────────────────── */
+.press-effect {
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.press-effect:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ─── 14. Premium Tag / Badge Styles ────────────────────── */
+.tag-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(0, 102, 51, 0.08), rgba(0, 102, 51, 0.04));
+  color: #006633;
+  border: 1px solid rgba(0, 102, 51, 0.12);
+  transition: all 0.2s ease;
+}
+
+.tag-premium:hover {
+  background: linear-gradient(135deg, rgba(0, 102, 51, 0.14), rgba(0, 102, 51, 0.08));
+  border-color: rgba(0, 102, 51, 0.22);
+}
+
+.dark .tag-premium {
+  background: linear-gradient(135deg, rgba(0, 168, 107, 0.12), rgba(0, 168, 107, 0.06));
+  color: #00a86b;
+  border-color: rgba(0, 168, 107, 0.18);
+}
+
+.dark .tag-premium:hover {
+  background: linear-gradient(135deg, rgba(0, 168, 107, 0.2), rgba(0, 168, 107, 0.12));
+  border-color: rgba(0, 168, 107, 0.3);
+}
+
+/* ─── 15. Safe Area Bottom Padding (iOS) ────────────────── */
+.safe-area-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+@supports not (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: 1rem;
+  }
+}
+
+/* ─── Breathe Animation (gentle pulse) ─────────────────── */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 102, 51, 0.25);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(0, 102, 51, 0.4);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+/* ─── Hover Lift (subtle elevation) ────────────────────── */
+.hover-lift {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.12),
+              0 4px 10px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Dot Indicator ─────────────────────────────────────── */
+.dot-indicator {
+  position: relative;
+}
+
+.dot-indicator::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #006633;
+  box-shadow: 0 0 6px rgba(0, 102, 51, 0.5);
+}
+
+/* ─── Dropdown Entrance Animation ──────────────────────── */
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-dropdown-in {
+  animation: dropdownIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Slide Up Animation (Bottom Sheets) ───────────────── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Search Green Focus Glow ──────────────────────────── */
+@keyframes searchGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+  }
+}
+
+.search-glow:focus {
+  animation: searchGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2),
+              0 0 12px rgba(74, 222, 128, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES — Housemate ZM
+   CSS-based approach ensures ALL pages work in dark mode
+   without modifying individual component files.
+   ═══════════════════════════════════════════════════════════ */
+
+.dark body {
+  background: #0a0a0a;
+  color: #e5e5e5;
+}
+
+.dark .bg-white {
+  background: #111111 !important;
+}
+
+.dark .bg-\[#f8f9fa\] {
+  background: #0a0a0a !important;
+}
+
+.dark .bg-gray-50 {
+  background: #1a1a1a !important;
+}
+
+.dark .text-gray-900 {
+  color: #f5f5f5 !important;
+}
+
+.dark .text-gray-800 {
+  color: #e5e5e5 !important;
+}
+
+.dark .text-gray-700 {
+  color: #d4d4d4 !important;
+}
+
+.dark .text-gray-600 {
+  color: #a3a3a3 !important;
+}
+
+.dark .text-gray-500 {
+  color: #737373 !important;
+}
+
+.dark .text-gray-400 {
+  color: #525252 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #262626 !important;
+}
+
+.dark .border-gray-100 {
+  border-color: #1a1a1a !important;
+}
+
+/* Card elevated in dark mode */
+.dark .card-elevated {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+              0 4px 6px -4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Gradient blobs in dark mode */
+.dark .bg-\[\#006633\]\/5 {
+  background: rgba(0, 102, 51, 0.1) !important;
+}
+
+.dark .bg-\[\#4ade80\]\/5 {
+  background: rgba(74, 222, 128, 0.05) !important;
+}
+
+/* Input fields */
+.dark input,
+.dark textarea,
+.dark select {
+  background: #1a1a1a !important;
+  border-color: #333 !important;
+  color: #e5e5e5 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #666 !important;
+}
+
+/* Red error boxes */
+.dark .bg-red-50 {
+  background: #1c0a0a !important;
+}
+
+.dark .border-red-200 {
+  border-color: #450a0a !important;
+}
+
+.dark .text-red-600 {
+  color: #ef4444 !important;
+}
+
+/* Skeleton in dark mode */
+.dark .bg-gray-200 {
+  background: #262626 !important;
+}
+
+.dark .bg-gray-300 {
+  background: #333 !important;
+}
+
+/* Green-50 tinted backgrounds */
+.dark .bg-green-50 {
+  background: #052e16 !important;
+}
+
+/* Glass white in dark mode */
+.dark .glass-white {
+  background: rgba(17, 17, 17, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Bottom nav dark background */
+.dark nav.bg-white\/90 {
+  background: rgba(17, 17, 17, 0.92) !important;
+}
+
+/* Dropdown menu dark background */
+.dark .bg-white\/95 {
+  background: rgba(17, 17, 17, 0.95) !important;
+}
+
+/* Filter buttons hover state */
+.dark .hover\:bg-\[\#f0fdf4\]:hover {
+  background: rgba(0, 102, 51, 0.15) !important;
+}
+
+/* Emerald text variants for dark mode readability */
+.dark .text-emerald-700 {
+  color: #34d399 !important;
+}
+
+/* Gray-100 backgrounds */
+.dark .bg-gray-100 {
+  background: #1a1a1a !important;
+}
+
+/* Gray-200 for buttons/filter tags */
+.dark .bg-gray-200 {
+  background: #262626 !important;
+}
+
+/* Scrollbar in dark mode */
+.dark *::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 51, 0.3);
+}
+
+.dark {
+  scrollbar-color: rgba(0, 102, 51, 0.3) transparent;
+}
+
+/* Search input shadow in dark mode */
+.dark .shadow-\[inset_0_1px_3px_rgba\(0\,0\,0\,0\.04\)\,0_1px_2px_rgba\(0\,0\,0\,0\.04\)\] {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Hover shadow adjustments for dark mode */
+.dark .hover\:shadow-md:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3) !important;
+}
